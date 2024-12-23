@@ -1,0 +1,311 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home Page</title>
+    <style>
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+header {
+    background-image: linear-gradient(180deg, rgb(255, 255, 255), rgb(132, 181, 209));
+    width: 100%;
+    height: 70px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+
+}
+
+.logo {
+    padding: 10px;
+}
+
+.Logo {
+    width: 240px;
+    height: 65px;
+    mix-blend-mode: multiply;
+}
+
+nav {
+    display: flex;
+    gap: 50px;
+}
+
+nav a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 25px;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+nav a:hover {
+    background-color: rgb(233, 134, 68);
+}
+
+.back {
+    width: 100%;
+    filter: saturate(2);
+}
+
+.welcome-hero {
+    background: linear-gradient(rgba(32, 34, 32, 0.7), rgba(45, 48, 45, 0.493)), url('{% static 'images/a_block.jpg' %}') no-repeat center center/cover;
+    height: 100vh;
+    color: white;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome-hero h2 {
+    font-size: 4rem;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-in-out;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 50px;
+    color: #ffffff;
+    text-shadow: 3px 3px 10px #000000;
+}
+
+.heading {
+    color: white;
+    text-shadow: 2px 2px 5px #050505;
+}
+
+.sport {
+    color: #000000;
+    font-weight: bold;
+    font-size: 25px;
+    text-align: center;
+}
+
+.container {
+    padding-left: 70px;
+    margin-top: 100px;
+}
+
+section .home {
+    padding: 40px 20px;
+}
+
+.home {
+    display: flex;
+    height: 280px;
+    gap: 30px;
+}
+
+.card-a {
+    margin-top: 25px;
+    border-radius: 20px;
+}
+
+.a {
+    border-radius: 5px;
+}
+
+.a, .b, .c, .d {
+    height: 200px;
+    width: 300px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    z-index: 1;
+}
+
+.a:hover, .b:hover, .c:hover, .d:hover {
+    height: 210px;
+    width: 310px;
+    z-index: 2;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.main-contect {
+    padding: 20px;
+    margin-left: 450px;
+}
+
+#contact {
+    width: 500px;
+    height: 520px;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 13px;
+}
+
+#contact h2 {
+    text-align: center;
+    font-size: 40px;
+    color: #ffffff;
+    text-shadow: 5px 5px 10px rgb(0, 0, 0);
+}
+
+#contact .any {
+    color: #ffffff;
+    font-size: 30px;
+    text-align: center;
+}
+
+.card {
+    width: 400px;
+    height: 300px;
+    margin: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    left: 20px;
+}
+
+form {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: transparent;
+}
+
+label {
+    font-size: 16px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input:hover {
+    background-color: #afac99;
+    box-shadow: 1px 8px 15px rgb(255, 255, 255);
+    transition: all 0.3s ease-in-out;
+}
+
+textarea:hover {
+    transition: all 0.3s ease-in-out;
+}
+
+button {
+    background-color: #ff8800;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #b9712e;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+h4 {
+    color: #000000;
+    font-size: 30px;
+    margin-top: 15px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src=" {% static 'images/akslogo.png' %}" class="Logo">
+        </div>
+
+        <nav>
+            <a href="{% url 'base' %}">Home</a>
+            <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'signup' %}">Register</a>
+            <a href="#contact">Contact</a>
+            <a href="{% url 'about' %}">About us</a>
+        </nav>
+    </header>
+
+    <div class="back">
+        <div class="welcome-hero">
+            <h1>Aks University Satna <br><samp class="heading">Sport Activity</samp></h1>
+        </div>
+
+        <div class="container">
+            <section class="home">
+                <div class="card-a">
+                    <img src="{% static 'images/cricket1.webp' %}" class="a">
+                    <p class="sport">Cricket</p>
+                </div>
+                <div class="card-a">
+                    <img src="{% static 'images/foodball.webp' %}" class="a">
+                    <p class="sport">Football</p>
+                </div>
+                <div class="card-a">
+                    <img src="{% static 'images/batmintan.jpg' %}" class="a">
+                    <p class="sport">Badminton</p>
+                </div>
+                <div class="card-a">
+                    <img src="{% static 'images/volleboll1.jpg' %}" class="a">
+                    <p class="sport">Volleyball</p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div class="main-contect">
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p class="any">If you have any Questions?</p>
+
+            <form class="box">
+                <label for="text">Your Name: </label>
+                <input type="text" id="text" placeholder="Enter your name" required><br>
+
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" placeholder="Enter your email" required><br>
+
+                <label for="number">Your Mobile Number:</label>
+                <input type="number" id="number" placeholder="Enter your number" required><br>
+
+                <label for="message">Message:</label><br>
+                <textarea id="message" name="message" rows="4" cols="50" required></textarea><br>
+                
+                <button class="btrn">Submit</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <marquee><h4>Welcome to Aks University</h4></marquee>
+    </footer>
+
+</body>  
+</html>

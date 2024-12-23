@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            filter: saturate(2);
+        }
+
+        .about {
+            background: url("{% static 'images/a_block.jpg' %}") no-repeat center center fixed;
+            background-size: cover;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .inner-section {
+            height: 500px;
+            width: 700px;
+            background-color: rgb(255, 255, 255); 
+            padding: 35px;
+            margin-top: 130px;
+            box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            float: right;
+            margin-right: 390px;
+        }
+
+        .inner-section h1 {
+            margin-bottom: 30px;
+            font-size: 40px;
+            font-weight: bold;
+            color: rgb(0, 0, 0);
+            text-shadow: 5px 5px 5px rgb(78, 78, 78);
+        }
+
+        .text {
+            font-size: 19px;
+            color: #000000;
+            line-height: 30px;
+            text-align: justify;
+            margin-bottom: 30px;
+        }
+
+        samp {
+            color: #000000;
+            font-size: 25px;
+            font-weight: bold;
+            text-shadow: 5px 5px 5px rgb(107, 105, 105);
+        }
+
+        .skills button {
+            font-size: 22px;
+            text-align: center;
+            letter-spacing: 2px;
+            border: none;
+            border-radius: 10px;
+            padding: 8px;
+            width: 200px;
+            background-color: #05f0f8;
+            cursor: pointer;
+        }
+
+        a { 
+            text-decoration: none;
+            color: #070707;
+            font-weight: bold;
+        }
+
+        .skills button:hover {
+            transition: 1s;
+            background-color: #2bf385;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 1200px) {
+            .inner-section {
+                padding: 80px;
+            }
+        }
+
+        @media screen and (max-width: 1000px) {
+            .about {
+                padding: 100px 40px;
+            }
+            .inner-section {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .inner-section {
+                padding: 60px;
+            }
+            .skills button {
+                font-size: 19px;
+                padding: 5px;
+                width: 160px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="about">
+        <div class="inner-section">
+            <h1>About Us</h1>
+            <p class="text">
+                A fit mind is an active mind. Therefore, along with academic pursuits, students should also pay equal attention to games and sports. 
+                We believe that sports play a crucial role in the holistic development of a student's personality since it teaches an individual to imbibe sportsman spirit, 
+                to be humble in victory and gracious in defeat, and a spirit of co-operation, discipline, honesty, and integrity. 
+                The university provides all types of sports facilities for both indoor and outdoor games. 
+                Regular play is a vital part of the curriculum. The university has 20+ acres of playground.
+                AKS University Students participated in the Satna Half Marathon organized on 3rd September by Pt. 
+                Ganesh Prasad Mishra Seva Nyas.<br>
+                <samp>"Khelega India Jeetega India"</samp>
+            </p>
+            <div class="skills">
+                <button><a href="{% url 'base' %}">Contact Us</a></button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

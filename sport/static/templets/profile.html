@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Certificate Generator</title>
+    <style>
+        body {
+            background-image: url("{% static 'images/a_block.jpg' %}");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center center;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 25px 0;
+            height: 70px;
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            line-height: 1.2;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 5px;
+        }
+
+        .aks-logo {
+            position: absolute;
+            top: 25px;
+            left: 10px;
+            filter: saturate(2);
+            z-index: 10;
+        }
+
+        .Logo {
+            width: 260px;
+            height: 70px;
+            mix-blend-mode: multiply;
+            filter: saturate(1);
+        }
+        
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 40px auto;
+            background: linear-gradient(135deg, rgba(17, 17, 17, 0.8), rgba(2, 2, 2, 0.3));
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-section {
+            background-color: transparent;
+            padding: 20px 0;
+            color: rgb(249, 249, 249);
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        label, input {
+            font-size: 20px;
+            margin-bottom: 5px;
+            text-align: left;
+            width: 80%;
+        }
+
+        input[type="text"] {
+            padding: 12px;
+            margin-bottom: 20px;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #00a030;
+            outline: none;
+        }
+
+        button {
+            padding: 12px 20px;
+            background-color: #188167;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #00a030;
+            transform: scale(1.05);
+        }
+
+        @media only screen and (max-width: 768px) {
+            header {
+                font-size: 24px;
+                padding: 15px 0;
+            }
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            header p {
+                font-size: 12px;
+            }
+
+            .aks-logo {
+                top: 10px;
+            }
+
+            .Logo {
+                width: 150px;
+            }
+        }
+
+        @media only screen and (max-width: 480px) {
+            header {
+                font-size: 30px;
+                padding: 10px 0;
+            }
+
+            header h1 {
+                font-size: 24px;
+            }
+
+            header p {
+                font-size: 14px;
+            }
+
+            .aks-logo {
+                top: 8px;
+            }
+
+            .Logo {
+                width: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Generate Sport Certificate</h1>
+        <p>Generate your certificate from AKS University</p>
+        <div class="aks-logo">
+            <img src=" {% static 'images/akslogo.png' %}" class="Logo">        
+        </div>
+    </header>
+
+    <div class="container">
+
+        <section class="form-section">
+            <h2>Enter Your Details</h2>
+            <form action="" method="POST">
+                {% csrf_token %}
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                <label for="game">Game Name</label>
+                <input type="text" id="game" name="game" placeholder="Enter the game name" required>
+
+                <button type="submit">Generate Certificate</button>
+                
+            </form>
+            
+        </section>
+
+        <div class="message">
+            <button type="submit"><a href="{% url 'base' %}">Home</a></button>
+        </div>
+
+    </div>
+</body>
+</html>
